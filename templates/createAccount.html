@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../static/login/css/createAccount.css">
+</head>
+<body>
+    <div class="create_account">
+        <h1>회원가입</h1>
+        <form  action="/join" method="post">
+            <input type="text" name="id" placeholder="Id" required="required" />
+            <input type="password" name="pw" placeholder="password" required="required" />
+            <input type="text" name="name" placeholder="name" required="required" />
+            <input type="text" name="birth" placeholder="date of birth(8 digits)" required="required" />
+            <div class="verify">{{ message }}</div>
+            <button type="submit" class="btn btn-primary btn-block btn-large">join membership</button>
+            <div class="back_login"><a href="/login">돌아가기</a></div>
+        </form>
+    </div>
+</body>
+<script>
+
+    let verify = document.querySelector(".verify")
+    
+    if(verify) {
+        if(verify.innerText.length != 0) {
+            verify.style.margin = "0 0px 20px 0";
+        }
+    }
+
+    let Input = document.querySelector('input[name="id"]')
+
+    
+
+    Input.addEventListener('blur', function() {
+        id = Input.value
+
+        fetch('/get_id?id='+id)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('요청 실패');
+            }
+            return response.text();
+        })
+        .then(data => {
+            document.getElementsByClassName('verify')[0].textContent = data;
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    });
+
+    
+</script>
+</html>

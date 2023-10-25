@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이디 찾기</title>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../static/login/css/findId.css">
+</head>
+<body>
+    <div class="findId">
+        <h1>아이디 찾기</h1>
+        <form  action="/findId" method="post">
+            <input type="text" name="name" placeholder="name" required="required" />
+            <input type="text" name="birth" placeholder="date of birth(8 digits)" required="required" />
+            <div class="verify">{{ message }}</div>
+            <button type="submit" class="btn btn-primary btn-block btn-large">find Id</button>
+            <div class="back_login"><a href="/login">돌아가기</a></div>
+        </form>
+    </div>
+</body>
+<script>
+    let verify = document.querySelector(".verify")
+    
+    if(verify) {
+        if(verify.innerText.length != 0) {
+            verify.style.margin = "0 0px 20px 0";
+        }
+    }
+</script>
+</html>

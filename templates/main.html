@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Eclipse</title>
+	<link rel="icon" href="static/favicon.ico" type="image/x-icon">	
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+	<link rel="stylesheet" href="static/index/css/style.css">	
+	<link rel="stylesheet" href="static/index/css/btn.css">	
+	<script src="https://kit.fontawesome.com/a626b7dec9.js" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</head>
+<body>	
+
+
+	<main class="wrap">
+		<video src="static/index/img/bg5.mp4" loop autoplay muted></video> 
+		<h1>Eclipse <span>PROJECT</span></h1>
+		<ul class="auto">
+			<li class="btnStart"><i class="fas fa-play"></i></li>
+			<li class="btnStop"><i class="fas fa-pause"></i></li>
+		</ul>
+
+<div class="swiper-wrapper">
+	<div class="swiper-slide">
+		<div class="inner">
+			<div class="con">
+				<video width="440" height="300" src="static/index/img/loop.mp4" loop autoplay muted></video>
+				<h2>Welcome</h2>
+			</div>
+		</div>
+	</div>
+	<div class="swiper-slide">
+		<div class="inner">
+			<div class="con">
+				<video width="440" height="300" src="static/index/img/bg6.mp4" loop controls ></video>
+				
+				<h2>Overview</h2>
+				
+				<p>웹로그 이상탐지 모델 설명 영상(영상 제작 예정)</p>
+			</div>
+		</div>
+	</div>
+	<div class="swiper-slide">
+		<div class="inner">
+			<div class="con">
+				<img src="static/index/img/eclipse.jpg">
+				<h2>Anomaly detection?</h2>
+				<div class="button_container">
+					<button class="btn" onclick="location.href='/AnomalyDetection'"><span>Learn more</span></button>
+				  </div>
+			</div>
+		</div>
+	</div>
+	<div class="swiper-slide">
+		<div class="inner">
+			<div class="con">
+				<img src="static/index/img/dashboard2.jpg">
+				<h2>3 Dashboards</h2>
+				<div class="button_container">
+					<button class="btn" onclick="location.href='/login'"><span>Learn more</span></button>
+				  </div>
+			</div>
+		</div>
+	</div>
+	<div class="swiper-slide">
+		<div class="inner">
+			<div class="con">
+				<img src="static/index/img/teamwork.jpg">
+				<h2>Team. Eclipse</h2>
+				<div class="button_container">
+					<button class="btn" onclick="location.href='/member1'"><span>LEARN MORE</span></button>
+				  </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+		<!-- 좌우버튼 -->
+		<div class="swiper-button-next"></div>
+		<div class="swiper-button-prev"></div>
+		
+		<!-- 페이징 버튼 -->
+		<div class="swiper-pagination"></div>
+	</div>
+</main>
+	<script>
+		const swiper = new Swiper('.wrap',{	
+			direction: "horizontal",
+			loop: true,						
+			pagination: {
+				el: '.swiper-pagination',
+				type: 'fraction'
+			},	
+			navigation : {				
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',			
+			},
+			spaceBetween: 0,
+			slidesPerView: "auto",
+			grabCursor: true,
+			centeredSlides :true,
+			speed:1000,
+			effect:"coverflow",	
+			coverflowEffect: {
+				rotate: 50,
+				stretch: -100,
+				depth: 400,
+				modifier: 1,
+				slideShadows: false,
+			},
+			autoplay: {
+				delay:1500,		
+				disableOnInteraction : true
+			}	
+		});
+
+		// .btnStart 요소를 찾아서 btnStart에 저장
+		const btnStart = document.querySelector(".btnStart");
+		// .btnStop 요소를 찾아서 btnStop에 저장
+		const btnStop = document.querySelector(".btnStop");
+
+		//btnStart버튼을 클릭시 자동롤링 시작
+		btnStart.addEventListener("click",()=>{
+			swiper.autoplay.start();
+		});
+
+		//btnStart버튼을 클릭시 자동롤링 정지
+		btnStop.addEventListener("click",()=>{
+			swiper.autoplay.stop();
+		});
+	</script>	
+</body>
+</html>
+
+

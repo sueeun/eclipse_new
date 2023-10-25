@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>새 비밀번호 설정</title>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../static/login/css/newPwConfig.css">
+</head>
+<body>
+    <div class="newPwConfig">
+        <h1>새 비밀번호 설정</h1>
+        <form  action="/newPwConfig" method="post">
+            <input type="password" name="newPw" placeholder="새 비밀번호" required="required" />
+            <input type="password" name="newPw_confirm" placeholder="새 비밀번호 확인" required="required" />
+            <div class="verify">{{ message }}</div>
+            <button type="submit" class="btn btn-primary btn-block btn-large">reset pw</button>
+            <div class="back_login"><a href="/findPw">돌아가기</a></div>
+        </form>
+    </div>
+</body>
+<script>
+    let verify = document.querySelector(".verify")
+    
+    if(verify) {
+        if(verify.innerText.length != 0) {
+            verify.style.margin = "0 0px 20px 0";
+        }
+    }
+</script>
+</html>
